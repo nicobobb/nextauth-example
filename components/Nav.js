@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSession, signOut } from 'next-auth/client'
+import { useSession, signOut } from 'next-auth/react'
 import Image from 'next/image'
 import logo from '../images/logo.png'
 

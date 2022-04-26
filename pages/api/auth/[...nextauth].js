@@ -1,8 +1,6 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import connectDB from "../../../config/connectDB";
-import Users from "../../../models/userModel";
-import bcrypt from "bcrypt";
 
 connectDB();
 
@@ -26,10 +24,3 @@ export default NextAuth({
     },
   },
 });
-
-const registerUser = async ({ email, password }) => {
-  const hashPass = await bcrypt.hash(password, 12);
-  const newUser = new Users({ email, password: hashPass });
-  await newUser.save();
-  throw new Error("Success! Check your email.");
-};

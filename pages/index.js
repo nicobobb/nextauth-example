@@ -1,12 +1,13 @@
 import { useSession, signIn, signOut } from "next-auth/react";
-
-export default function Login() {
+import { Nav } from "../components/Nav";
+export default function Home() {
   const { data: session } = useSession();
   if (session) {
     return (
       <>
+        <Nav />
         Signed in as {session.user.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
+        <button onClick={() => signOut()}>Cerrar Sesión</button>
       </>
     );
   }
